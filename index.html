@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen">0</div>
+
+      <div class="keys">
+        <button data-action="clear">AC</button>
+        <button>0</button>
+        <button data-action="point">.</button>
+        <button class="operator" data-action="substract">-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator" data-action="divide">&divide;</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator" data-action="multiply">&times;</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator" data-action="add">+</button>
+        <button data-action="delete">D</button>
+        <button class="equal" data-action="calculate">=</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
