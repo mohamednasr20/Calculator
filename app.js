@@ -17,6 +17,9 @@ const calc = (x, y, operater) => {
     case "divide":
       return y === 0 ? "ERROR" : x / y;
       break;
+    case "percent":
+      return (x / y) * 100;
+      break;
   }
 };
 
@@ -43,20 +46,21 @@ keys.addEventListener("click", (e) => {
       action === "add" ||
       action === "substract" ||
       action === "multiply" ||
-      action === "divide"
+      action === "divide" ||
+      action === "percent"
     ) {
       let secondValue = parseFloat(display);
       let firstValue = parseFloat(calculator.dataset.firstNum);
       let operator = calculator.dataset.operator;
-      if (firstValue && operator) {
+      if (firstValue && operator && secondValue) {
         screen.textContent = calc(firstValue, secondValue, operator);
-        calculator.dataset.firstNum = calc(firstValue, secondValue, operator);
+        if (firstValue && operator && secondValue && action === "percent") {
+          screen.textContent = `${calc(firstValue, secondValue, operator)}%`;
+        }
       }
-      if (calculator.classList.contains("ready")) {
-        screen.textContent = display;
-        calculator.dataset.firstNum = screen.textContent;
-        return;
-      }
+      if (calculator.classList.contains("ready")) screen.textContent = display;
+      calculator.dataset.firstNum = screen.textContent;
+
       calculator.classList.add("ready");
       key.classList.add("active");
       calculator.dataset.firstNum = screen.textContent;
@@ -76,15 +80,14 @@ keys.addEventListener("click", (e) => {
         !calculator.dataset.operator ||
         calculator.classList.contains("ready")
       ) {
-        console.log(calculator.classList.contains("ready"));
         return;
       }
       let firstNum = parseFloat(calculator.dataset.firstNum);
       let operator = calculator.dataset.operator;
       let secondNum = parseFloat(display);
       screen.textContent = calc(firstNum, secondNum, operator);
-
-      // console.log(calculator.classList.contains("ready"));
+      calculator.dataset.firstNum = screen.textContent;
+      calculator.classList.add("ready");
     }
   }
 });

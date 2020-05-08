@@ -7,13 +7,16 @@
     <title>calculator</title>
   </head>
   <body>
+    <header>
+      <h1>Calculator</h1>
+    </header>
     <div class="container">
       <div class="screen">0</div>
 
       <div class="keys">
         <button data-action="clear">AC</button>
         <button>0</button>
-        <button data-action="point">.</button>
+        <button class="operator" data-action="percent">%</button>
         <button class="operator" data-action="substract">-</button>
         <button>7</button>
         <button>8</button>
@@ -28,6 +31,7 @@
         <button>3</button>
         <button class="operator" data-action="add">+</button>
         <button data-action="delete">D</button>
+        <button data-action="point">.</button>
         <button class="equal" data-action="calculate">=</button>
       </div>
     </div>
